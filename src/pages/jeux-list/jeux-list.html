@@ -1,0 +1,29 @@
+<!--
+  Generated template for the JeuxListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>jeuxList</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <h2>Liste de mes jeux</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let jeu of jeux">
+        <ion-list (click)="onGoToJeu(jeu.data.NameJeu, jeu.id)">
+        <ion-item >
+          <ion-img [src]="jeu.data.jacket"></ion-img>
+        </ion-item>
+        <ion-item>
+          {{jeu.data.NameJeu}}
+        </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

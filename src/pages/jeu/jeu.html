@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{titre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="onGoAccesModif()">Rendre Modifiable</button>
+  <button ion-button (click)="onDelete()">supprimer</button>
+  <div *ngIf="!modif">
+    <ion-grid *ngIf="jeu">
+      <ion-row >
+        <ion-col >
+          <ion-img col-6 class="center" [src]="jeu.data.jacket"></ion-img><br>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <strong>Titre </strong>{{jeu.data.NameJeu}}<br>
+          <strong>Studio </strong>{{jeu.data.Studio}}<br>
+          <strong>date de sortie </strong>{{jeu.data.dateDeSortie}}<br>
+          <strong>prix </strong>{{jeu.data.prix}}<br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="modif">
+    <ion-item>
+      <ion-label>Jacket</ion-label>
+      <ion-input type="text" [(ngModel)]="jeu.data.jacket"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>titre</ion-label>
+      <ion-input type="text" [(ngModel)]="jeu.data.NameJeu"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Studio</ion-label>
+      <ion-input type="text" [(ngModel)]="jeu.data.Studio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>date de sortie</ion-label>
+      <ion-input type="date" [(ngModel)]="jeu.data.dateDeSortie"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prix</ion-label>
+      <ion-input type="number" [(ngModel)]="jeu.data.prix"></ion-input>
+    </ion-item>
+    <br>
+    <div class="text-center">
+      <button ion-button (click)="onModif()">Modifier</button>
+    </div>
+  </div>
+</ion-content>
